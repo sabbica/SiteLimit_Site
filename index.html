@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SiteLimit — Block distracting sites when you hit your daily limit</title>
+  <meta name="description" content="SiteLimit tracks time spent on every website and automatically blocks the tab when you hit your daily cap. Free Chrome extension, no account required.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">Site<em>Limit</em></a>
+    <ul class="nav-links">
+      <li><a href="support.html">Support</a></li>
+      <li><a href="privacy.html">Privacy</a></li>
+      <li>
+        <a href="https://chromewebstore.google.com/detail/sitelimit/ddlhhhgihcceajdeeencdefdfmojmhie"
+           class="btn" target="_blank" rel="noopener">Add to Chrome</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <p class="eyebrow">Chrome Extension &mdash; Free</p>
+
+  <div id="counter" class="hero-counter">1h 24m 03s</div>
+  <p class="hero-site">on <strong>reddit.com</strong> today.</p>
+  <p class="hero-limit">&#x25B2; 24m over your 1-hour limit</p>
+
+  <h1>Automatic site blocking when you hit your daily cap.</h1>
+  <p>SiteLimit tracks time spent on every website in the background and redirects the tab the moment you exceed your limit. No reminders. No willpower required.</p>
+
+  <a href="https://chromewebstore.google.com/detail/sitelimit/ddlhhhgihcceajdeeencdefdfmojmhie"
+     class="btn btn-lg" target="_blank" rel="noopener">Add to Chrome &mdash; Free</a>
+</div>
+
+<!-- FEATURES -->
+<div class="section">
+  <p class="section-label">What it does</p>
+  <h2>Precise, automatic, and entirely local.</h2>
+
+  <div class="spec-row">
+    <div class="spec-label">Live time tracking</div>
+    <div class="spec-desc">Every website gets its own timer. SiteLimit runs silently in the background, logging seconds to each hostname as you browse. No setup required beyond installing the extension.</div>
+  </div>
+  <div class="spec-row">
+    <div class="spec-label">Per-site daily limits</div>
+    <div class="spec-desc">Assign a daily time cap to any site. The counter runs against it automatically — you don't start or stop anything. Just set it and forget it.</div>
+  </div>
+  <div class="spec-row">
+    <div class="spec-label">Automatic blocking</div>
+    <div class="spec-desc">When your limit is reached, the active tab redirects to a block page. The site stays blocked until midnight, when all usage counters reset.</div>
+  </div>
+  <div class="spec-row">
+    <div class="spec-label">Fully local &mdash; no account</div>
+    <div class="spec-desc">All data is stored in Chrome's local storage on your device. Nothing is sent to a server. No account, no sign-up, no tracking of any kind.</div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="section">
+  <p class="section-label">How it works</p>
+  <h2>Running in three steps.</h2>
+
+  <div class="steps">
+    <div class="step-item">
+      <p class="step-n">STEP 01</p>
+      <h3>Install from the Chrome Web Store</h3>
+      <p>One click. No account, no email, no permissions beyond what it needs to function.</p>
+    </div>
+    <div class="step-item">
+      <p class="step-n">STEP 02</p>
+      <h3>Set a daily limit for any site</h3>
+      <p>Click the SiteLimit icon in your toolbar. Choose a site from your history and enter a daily time cap.</p>
+    </div>
+    <div class="step-item">
+      <p class="step-n">STEP 03</p>
+      <h3>SiteLimit enforces it automatically</h3>
+      <p>Time is tracked in the background. When you hit your cap, the tab locks. No intervention needed on your end.</p>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-strip">
+  <div>
+    <h2>Ready to spend your time more deliberately?</h2>
+    <p>Free, no account required, all data stays on your device.</p>
+  </div>
+  <a href="https://chromewebstore.google.com/detail/sitelimit/ddlhhhgihcceajdeeencdefdfmojmhie"
+     class="btn btn-lg" target="_blank" rel="noopener">Add to Chrome &mdash; Free</a>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <p>&copy; 2026 SiteLimit</p>
+    <ul class="footer-links">
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="support.html">Support</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+  // Hero counter — starts at 1h 23m 47s (past a hypothetical 1-hour limit)
+  // and counts up in real time, making the extension's value proposition visceral.
+  let elapsed = 5027;
+  function fmt(n) {
+    const h = Math.floor(n / 3600);
+    const m = Math.floor((n % 3600) / 60);
+    const s = n % 60;
+    return h + 'h ' + String(m).padStart(2, '0') + 'm ' + String(s).padStart(2, '0') + 's';
+  }
+  const el = document.getElementById('counter');
+  el.textContent = fmt(elapsed);
+  setInterval(function () {
+    elapsed++;
+    el.textContent = fmt(elapsed);
+    const over = elapsed - 3600;
+    const limitLine = document.querySelector('.hero-limit');
+    if (over > 0) {
+      const om = Math.floor(over / 60);
+      const os = over % 60;
+      limitLine.textContent = '▲ ' + (om > 0 ? om + 'm ' : '') + os + 's over your 1-hour limit';
+    }
+  }, 1000);
+</script>
+
+</body>
+</html>
