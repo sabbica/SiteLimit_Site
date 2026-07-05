@@ -23,56 +23,50 @@
   </div>
 </nav>
 
+<!-- CONTACT FORM -->
 <div class="section" style="border-top: none; padding-top: 5rem;">
-  <div class="support-grid">
+  <p class="section-label">Get in touch</p>
+  <h1 style="font-size: clamp(1.5rem, 3.5vw, 2.1rem); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.75rem;">We&rsquo;re here to help.</h1>
+  <p style="color: var(--dim); font-size: 0.92rem; margin-bottom: 2rem;">Spotted a bug, have a feature idea, or just need a hand? Send us a message and we&rsquo;ll get back to you.</p>
 
-    <!-- CONTACT FORM -->
-    <div class="form-col">
-      <p class="section-label">Get in touch</p>
-      <h1>We&rsquo;re here to help.</h1>
-      <p>Spotted a bug, have a feature idea, or just need a hand? Send us a message and we&rsquo;ll get back to you.</p>
+  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdHcsly63kH9ZNKIAb9KY1fKXUj-_w_91SGssdz65ei0eRauw/viewform?embedded=true"
+          width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0"
+          style="border:none;">Loading&hellip;</iframe>
+</div>
 
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdHcsly63kH9ZNKIAb9KY1fKXUj-_w_91SGssdz65ei0eRauw/viewform?embedded=true"
-              width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0"
-              style="border:none;">Loading&hellip;</iframe>
-    </div>
+<!-- FAQ -->
+<div class="section">
+  <p class="section-label">Common questions</p>
+  <h2>Things people ask.</h2>
 
-    <!-- FAQ -->
-    <div class="faq-col">
-      <p class="section-label">Common questions</p>
-      <h2>Things people ask.</h2>
+  <div class="faq-item">
+    <h3>Does SiteLimit see what I&rsquo;m doing on a site?</h3>
+    <p>No. SiteLimit only reads the hostname of the active tab (e.g. <code>reddit.com</code>) — never the full URL, the page title, or anything on the page itself. All it knows is which domain you&rsquo;re on and for how long.</p>
+  </div>
 
-      <div class="faq-item">
-        <h3>Does SiteLimit see what I&rsquo;m doing on a site?</h3>
-        <p>No. SiteLimit only reads the hostname of the active tab (e.g. <code>reddit.com</code>) — never the full URL, the page title, or anything on the page itself. All it knows is which domain you&rsquo;re on and for how long.</p>
-      </div>
+  <div class="faq-item">
+    <h3>When does my usage reset?</h3>
+    <p>All usage counters reset automatically at midnight in your local time. Your configured limits are unaffected — only the accumulated time clears.</p>
+  </div>
 
-      <div class="faq-item">
-        <h3>When does my usage reset?</h3>
-        <p>All usage counters reset automatically at midnight in your local time. Your configured limits are unaffected — only the accumulated time clears.</p>
-      </div>
+  <div class="faq-item">
+    <h3>Will my limits sync across devices?</h3>
+    <p>Not currently. SiteLimit uses <code>chrome.storage.local</code>, which is scoped to the device. Limits and usage data are stored only on the machine where you set them.</p>
+  </div>
 
-      <div class="faq-item">
-        <h3>Will my limits sync across devices?</h3>
-        <p>Not currently. SiteLimit uses <code>chrome.storage.local</code>, which is scoped to the device. Limits and usage data are stored only on the machine where you set them.</p>
-      </div>
+  <div class="faq-item">
+    <h3>How do I remove a limit I set?</h3>
+    <p>Click the SiteLimit icon in your Chrome toolbar to open the popup, find the site you want to remove, and delete the limit from there.</p>
+  </div>
 
-      <div class="faq-item">
-        <h3>How do I remove a limit I set?</h3>
-        <p>Click the SiteLimit icon in your Chrome toolbar to open the popup, find the site you want to remove, and delete the limit from there.</p>
-      </div>
+  <div class="faq-item">
+    <h3>Why did tracking pause for a minute?</h3>
+    <p>SiteLimit runs as a Chrome service worker, which Chrome can suspend when the browser is idle. Tracking resumes automatically the next time you interact with the browser. This is a Chrome platform behaviour, not a bug.</p>
+  </div>
 
-      <div class="faq-item">
-        <h3>Why did tracking pause for a minute?</h3>
-        <p>SiteLimit runs as a Chrome service worker, which Chrome can suspend when the browser is idle. Tracking resumes automatically the next time you interact with the browser. This is a Chrome platform behaviour, not a bug.</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>Does it track time when Chrome is in the background?</h3>
-        <p>No. SiteLimit only counts time when the browser window is in focus and the tab is active. Time spent with Chrome minimised or behind another window is not counted.</p>
-      </div>
-    </div>
-
+  <div class="faq-item">
+    <h3>Does it track time when Chrome is in the background?</h3>
+    <p>No. SiteLimit only counts time when the browser window is in focus and the tab is active. Time spent with Chrome minimised or behind another window is not counted.</p>
   </div>
 </div>
 
