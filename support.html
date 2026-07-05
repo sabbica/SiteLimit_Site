@@ -32,33 +32,9 @@
       <h1>We&rsquo;re here to help.</h1>
       <p>Spotted a bug, have a feature idea, or just need a hand? Send us a message and we&rsquo;ll get back to you.</p>
 
-      <form id="contact-form" novalidate>
-        <div class="field">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" placeholder="Your name" required autocomplete="name">
-        </div>
-        <div class="field">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email">
-        </div>
-        <div class="field">
-          <label for="type">Type</label>
-          <select id="type" name="type">
-            <option value="bug">Bug report</option>
-            <option value="feature">Feature request</option>
-            <option value="question">General question</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" placeholder="Describe your issue or question in as much detail as you can..." required></textarea>
-        </div>
-        <button type="submit" class="btn btn-lg submit-btn">Send Message</button>
-        <p id="form-note" style="font-size:0.78rem;color:var(--dim);margin-top:0.75rem;display:none;">
-          This will open your email client with the message pre-filled.
-        </p>
-      </form>
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdHcsly63kH9ZNKIAb9KY1fKXUj-_w_91SGssdz65ei0eRauw/viewform?embedded=true"
+              width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0"
+              style="border:none;">Loading&hellip;</iframe>
     </div>
 
     <!-- FAQ -->
@@ -110,39 +86,6 @@
   </div>
 </footer>
 
-<script>
-  // Form submits via mailto: — opens the user's email client with fields pre-filled.
-  // To use a proper form backend instead, replace this with a Formspree endpoint:
-  //   <form action="https://formspree.io/f/YOUR_ID" method="POST">
-  // and remove this script block.
-  //
-  // Update the email address below to your support address.
-  var SUPPORT_EMAIL = 'support@sitelimit.io';
-
-  document.getElementById('contact-form').addEventListener('submit', function (e) {
-    e.preventDefault();
-    var name    = document.getElementById('name').value.trim();
-    var email   = document.getElementById('email').value.trim();
-    var type    = document.getElementById('type').value;
-    var message = document.getElementById('message').value.trim();
-
-    if (!name || !email || !message) {
-      alert('Please fill in all required fields.');
-      return;
-    }
-
-    var subject = encodeURIComponent('SiteLimit Support — ' + type);
-    var body    = encodeURIComponent(
-      'Name: ' + name + '\n' +
-      'Email: ' + email + '\n' +
-      'Type: ' + type + '\n\n' +
-      message
-    );
-
-    document.getElementById('form-note').style.display = 'block';
-    window.location.href = 'mailto:' + SUPPORT_EMAIL + '?subject=' + subject + '&body=' + body;
-  });
-</script>
 
 </body>
 </html>
